@@ -24,7 +24,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::group(['prefix'=>'mobile'], function(){
-    // SocialMedia
     Route::get('/', [App\Http\Controllers\MobileController::class, 'index'])->name('index.mobile');
     Route::get('/facebook', [LoginController::class, 'facebook']);
     Route::get('/google', [LoginController::class, 'google']);
