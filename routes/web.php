@@ -25,7 +25,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::group(['prefix'=>'mobile'], function(){
     // SocialMedia
-    Route::get('/', [App\Http\Controllers\MobileLoginController::class, 'index'])->name('index.mobile');
+    Route::get('/', [App\Http\Controllers\MobileController::class, 'index'])->name('index.mobile');
     Route::get('/facebook', [LoginController::class, 'facebook']);
     Route::get('/google', [LoginController::class, 'google']);
     Route::post('/stk-call-back', [App\Http\Controllers\MobileController::class, 'customerMpesaSTKPushCallBack'])->name('mobile/stk-call-back');
