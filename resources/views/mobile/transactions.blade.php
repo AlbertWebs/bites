@@ -32,9 +32,13 @@
                 // dd($data);
             ?>
            <p class="mb-0"><strong>Payment For:</strong> </p>
-            @foreach ($data as $items)
-            <p class="mb-0">{{$items['name']}} - {{$items['quantity']}}</p>
-            @endforeach
+           @if($data == null)
+           <p class="text-danger">No data</p>
+           @else
+                @foreach ($data as $items)
+                <p class="mb-0">{{$items['name']}} - {{$items['quantity']}}</p>
+                @endforeach
+            @endif
             {{--
              --}}
 
