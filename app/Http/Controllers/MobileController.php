@@ -35,7 +35,6 @@ class MobileController extends Controller
     }
 
     public function index(Request $request){
-
         $Menu = Menu::paginate(12);
         // $Menu = DB::table('menus')->limit(12)->get();
         $Category = DB::table('category')->get();
@@ -44,7 +43,6 @@ class MobileController extends Controller
             $view = view('mobile.data', compact('Menu'))->render();
             return response()->json(['html' => $view]);
         }
-
         return view('mobile.home', compact('Menu','Category','Orders'));
     }
 
