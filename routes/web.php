@@ -25,8 +25,10 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::group(['prefix'=>'mobile'], function(){
     Route::get('/', [App\Http\Controllers\MobileController::class, 'index'])->name('index.mobile');
+
     Route::get('/facebook', [LoginController::class, 'facebook']);
     Route::get('/google', [LoginController::class, 'google']);
+
     Route::post('/stk-call-back', [App\Http\Controllers\MobileController::class, 'customerMpesaSTKPushCallBack'])->name('mobile/stk-call-back');
     Route::post('/search', [App\Http\Controllers\MobileController::class, 'search_menu'])->name('search-menu');
     Route::get('/veryfy-number', [App\Http\Controllers\MobileController::class, 'veryfy_number'])->name('veryfy-number');
@@ -37,7 +39,6 @@ Route::group(['prefix'=>'mobile'], function(){
     Route::post('/send-verification', [App\Http\Controllers\MobileController::class, 'send_verification'])->name('send-verification');
     Route::post('/stk-push', [App\Http\Controllers\MobileController::class, 'stk_push'])->name('stk-push');
     Route::get('/send-verification-test', [App\Http\Controllers\MobileController::class, 'send_verification_test'])->name('send-verification-test');
-    Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('mobile.login');
     Route::post('/sign-up', [App\Http\Controllers\MobileLoginController::class, 'sign_up_post'])->name('mobile.signup.post');
     Route::get('/get-started', [App\Http\Controllers\MobileController::class, 'index'])->name('get-started');
     Route::get('/location', [App\Http\Controllers\MobileController::class, 'location'])->name('mobile.location');
