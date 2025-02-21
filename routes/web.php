@@ -25,11 +25,9 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::group(['prefix'=>'mobile'], function(){
     // SocialMedia
+    Route::get('/', [App\Http\Controllers\MobileLoginController::class, 'index'])->name('index.mobile');
     Route::get('/facebook', [LoginController::class, 'facebook']);
     Route::get('/google', [LoginController::class, 'google']);
-    Route::get('/google/redirect', [LoginController::class, 'googleRedirect']);
-    Route::get('/facebook/redirect', [LoginController::class, 'facebookRedirect']);
-    Route::get('/', [App\Http\Controllers\MobileLoginController::class, 'index'])->name('index.mobile');
     Route::post('/stk-call-back', [App\Http\Controllers\MobileController::class, 'customerMpesaSTKPushCallBack'])->name('mobile/stk-call-back');
     Route::post('/search', [App\Http\Controllers\MobileController::class, 'search_menu'])->name('search-menu');
     Route::get('/veryfy-number', [App\Http\Controllers\MobileController::class, 'veryfy_number'])->name('veryfy-number');
@@ -82,14 +80,7 @@ Route::group(['prefix'=>'mobile'], function(){
 Route::group(['prefix'=>'admin'], function(){
 
     Route::get('/', [AdminsController::class, 'index'])->name('admin.home');
-    // Route::get('/home', [AdminsController::class, 'index'])->name('admin.home')->middleware('is_admin');
-    //Testimonial
-    Route::get('/addTestimonial', [AdminsController::class, 'addTestimonial']);
-    Route::post('/add_Testimonial', [AdminsController::class, 'add_Testimonial']);
-    Route::get('/testimonials',[AdminsController::class, 'testimonials']);
-    Route::get('/editTestimonial/{id}', [AdminsController::class, 'editTestimonial']);
-    Route::get('/deleteTestimonial/{id}', [AdminsController::class, 'deleteTestimonial']);
-    Route::post('/edit_Testimonial/{id}', [AdminsController::class, 'edit_Testimonial']);
+
 
     //Terms Privacy copyright
     //copyright
